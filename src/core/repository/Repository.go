@@ -3,7 +3,7 @@ package repository
 import "github.com/isaquecsilva/posts-rest-api/core/entities"
 
 type Repository interface {
-	Insert()
-	Find(id int) entities.Post
-	FindAll() []entities.Post
+	Insert(post entities.Post) error
+	Find(id int) (entities.Post, error)
+	FindAll() ([]entities.Post, error)
 }
