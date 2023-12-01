@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/isaquecsilva/posts-rest-api/config/rest_errors"
@@ -32,7 +31,6 @@ func (c *Controller) CreateNewPost(adapter Adapter) {
 	// We couldn't parse the request?
 	// So, we return an internal server rest error message.
 	if err != nil {
-		fmt.Println("chegou aqui")
 		restErrorMessage := rest_errors.NewInternalServerRestError(err.Error())
 		adapter.SendResponse(restErrorMessage.Code, restErrorMessage)
 		return
